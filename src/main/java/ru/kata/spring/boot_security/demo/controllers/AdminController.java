@@ -70,11 +70,11 @@ public class AdminController {
         userService.deleteUser(id);
         return "redirect:/admin";
     }
-
-    @GetMapping("/user")
-    public String userPage(Principal principal, Model model) {
+    @GetMapping("/admin/user")
+    public String adminPage(Principal principal, Model model) {
         model.addAttribute("user", userService.findByUsername(principal.getName()));
-        return "user";
+        return "adminUser";
     }
+
 
 }

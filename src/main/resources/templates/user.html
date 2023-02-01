@@ -17,22 +17,17 @@
 
 <body style="background-color:#f9fafa">
 
-<div class="container-fluid ">
-    <dl class="row" style="background-color: #353a3f">
-        <div class="col-11 text-left">
-            <ul class="list-inline h5">
-                <li class="list-inline-item text-white text-strong navbar-brand"
-                    th:utext="${user.getUsername()}"></li>
-                <li class="list-inline-item text-white navbar-brand">with roles:</li>
-                <li class="list-inline-item text-white navbar-brand" th:utext="${user.rolesToString()}">
-                    <strong></strong></li>
-            </ul>
-        </div>
-        <div class="col-1 h6">
-            <a class="navbar-brand text-white text-right" href="/logout">Logout</a>
-        </div>
-    </dl>
-</div>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <p class="navbar-brand text-white">
+            <b><span class="align-middle" th:text="${user.getUsername()}"></span></b>
+            <span class="align-middle">with roles:</span>
+            <span class="align-middle" th:text="${user.rolesToString()}"></span>
+        </p>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="btn btn-dark text-secondary">Logout</button>
+        </form>
+    </div>
 </nav>
 
 <div class="container-fluid ">
